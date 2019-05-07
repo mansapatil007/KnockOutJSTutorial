@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="knockout-3.5.0.js"></script>
+</head>
+<body>
+    <input type="checkbox" name="name" data-bind="checked:showHideSection" />
+
+    <div id="div1" data-bind="if:showHideSection">
+        this is if div
+    </div>
+    <div id="div2" data-bind="visible:showHideSection">
+        this is visible div
+    </div>
+
+    <button onclick="alert(document.getElementById('div1').innerHTML)">div 1</button>
+    <button onclick="alert(document.getElementById('div2').innerHTML)">div 2</button>
+    <hr>
+    
+    <ul>
+        <li>  this is first line  </li>
+        <!-- ko if:showHideSection-->
+        <li>  this is second line  </li>
+        <!-- /ko-->
+    </ul>
+    
+
+    
+    <script>
+        var myviewmodel = function () {
+            this.showHideSection = ko.observable(true);
+        }
+        ko.applyBindings(myviewmodel)
+    </script>
+</body>
+</html>
