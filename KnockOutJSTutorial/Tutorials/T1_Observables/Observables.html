@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../../scripts/KnockOutJS/knockout-3.5.0.js"></script>
+</head>
+<body>
+    <div id="studentDiv">
+        Student ID : <span data-bind="text:studentId"></span><br />
+        Student Name: <span data-bind="text:studentName"></span><br />
+        Student DOB : <span data-bind="text:studentDOB"></span><br />
+    </div>
+    <hr>
+    <div id="professorDiv">
+        Professor ID: <input type="text" data-bind="value:professorId" /><br>
+        Professor First Name: <input type="text" data-bind="value:professorFName" /><br>
+        Professor Last Name: <input type="text" data-bind="value:professorLName" /><br>
+        Professor DOB: <input type="text" data-bind="value:professorDOB" /><br>
+        <br>
+        Professor ID : <span data-bind="text:professorId"></span><br />
+        Professor First Name: <span data-bind="text:professorFName"></span><br />
+        Professor Last Name: <span data-bind="text:professorLName"></span><br />
+        Professor DOB : <span data-bind="text:professorDOB"></span><br />
+        Professor Full Name : <span data-bind="text:professorFullName"></span><br />
+    </div>
+
+    <script type="text/javascript">
+        var studentModel = {
+            studentId: 01,
+            studentName: 'Andy Jackson',
+            studentDOB: '06/12/1990'
+        };
+
+        ko.applyBindings(studentModel, document.getElementById('studentDiv'));
+
+        var professorModel = function () {
+            this.professorId = ko.observable(01);
+            this.professorFName = ko.observable('James');
+            this.professorLName = ko.observable('Carter');
+            this.professorDOB = ko.observable('01/01/1970');
+            this.professorFullName = ko.computed(function () {
+                return this.professorFName() + " " + this.professorLName();
+            }, this);
+        };
+
+        ko.applyBindings(professorModel, document.getElementById('professorDiv'));
+    </script>
+</body>
+</html>
