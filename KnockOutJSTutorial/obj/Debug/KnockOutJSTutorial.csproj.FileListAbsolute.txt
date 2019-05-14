@@ -105,7 +105,6 @@ C:\Users\sandi\Source\Repos\mansapatil007\KnockOutJSTutorial\KnockOutJSTutorial\
 C:\Users\sandi\Source\Repos\mansapatil007\KnockOutJSTutorial\KnockOutJSTutorial\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\sandi\Source\Repos\mansapatil007\KnockOutJSTutorial\KnockOutJSTutorial\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\sandi\Source\Repos\mansapatil007\KnockOutJSTutorial\KnockOutJSTutorial\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\sandi\Source\Repos\mansapatil007\KnockOutJSTutorial\KnockOutJSTutorial\obj\Debug\KnockOutJSTutorial.csprojAssemblyReference.cache
 C:\Users\sandi\Source\Repos\mansapatil007\KnockOutJSTutorial\KnockOutJSTutorial\obj\Debug\KnockOutJSTutorial.csproj.CoreCompileInputs.cache
 C:\Users\sandi\Source\Repos\mansapatil007\KnockOutJSTutorial\KnockOutJSTutorial\obj\Debug\KnockOutJSTutorial.csproj.CopyComplete
 C:\Users\sandi\Source\Repos\mansapatil007\KnockOutJSTutorial\KnockOutJSTutorial\obj\Debug\KnockOutJSTutorial.dll
