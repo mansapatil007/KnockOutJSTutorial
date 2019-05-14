@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../../scripts/KnockOutJS/knockout-3.5.0.js"></script>
+</head>
+<body>
+
+    <!--example 1-->
+    <table style="border:2px solid black" id="Example1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Sex</th>
+            </tr>
+
+        </thead>
+        <tbody data-bind="foreach:people">
+            <tr>
+                <td data-bind="text:FName"></td>
+                <td data-bind="text:LName"></td>
+                <td data-bind="text:Sex"></td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <!--example2-->
+    <div id="Example2">
+        <ul data-bind="foreach:placessViewModel">
+            <li data-bind="text:$data"></li>
+        </ul>
+    </div>
+    <hr />
+    <!--example3-->
+    <div id="Example3">
+        <table>
+            <thead>
+                <tr>
+                    <th>FName</th>
+                    <th>LName</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:studentVM">
+                <tr>
+                    <td data-bind="text:fname"></td>
+                    <td data-bind="text:lname"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    <!--example4-->
+    <div id="example4">
+        <input type="text" data-bind="value:firstName,valueUpdate:'keyup'" /><span data-bind="text:firstName"></span><br />
+        <input type="text" data-bind="value:lastName,valueUpdate:'keyup'" /><span data-bind="text:lastName"></span><br />
+        full Name: <span data-bind="text:fullName"></span>
+    </div>
+
+    <script type="text/javascript">
+
+        //array of an objects for Example1
+        //this is Person Class
+        var Person = function (fname, lname, sex) {
+            this.FName = ko.observable(fname);
+            this.LName = ko.observable(lname);
+            this.Sex = ko.observable(sex);
+        }
+
+        //initialize an array of set of persons
+        var personViewModel = {
+            people: [
+                new Person("Andy", "Jackson", "M"),
+                new Person("Mike", "Peak", "M"),
+                new Person("Jane", "Kodi", "F")
+            ],
+            showRenderTimes: ko.observable(false)
+        };
+
+        //bind viewmodel
+        ko.applyBindings(personViewModel, document.getElementById('Example1'));
+
+        //simple Array of cities fro Example2
+        var placessViewModel = ko.observableArray(['New York', 'New Jersey', 'Boston', 'Chicago', 'Atlanta']);
+
+        ko.applyBindings(placessViewModel, document.getElementById('Example2'));
+
+        //key value array for example Example3
+        var studentVM = ko.observableArray(
+            [{ fname: 'jackson', lname: 'joe' },
+            { fname: 'Jora', lname: 'Jane' },
+            { fname: 'Foda', lname: 'Dace' }]
+        );
+        ko.applyBindings(studentVM, document.getElementById('Example3'));
+
+        //keyup, to spontaneous binding
+        var obj = {
+            firstName: ko.observable('Jimmy' ),
+            lastName: ko.observable('Joe')
+        };
+        obj.fullName = ko.computed(function () {
+            return obj.firstName() + ' ' + obj.lastName();
+        });
+        ko.applyBindings(obj, document.getElementById('example4'));
+    </script>
+</body>
+</html>
