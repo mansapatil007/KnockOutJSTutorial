@@ -25,14 +25,14 @@
             </tr>
         </tbody>
     </table>
-
+    <hr />
     <!--example2-->
     <div id="Example2">
         <ul data-bind="foreach:placessViewModel">
             <li data-bind="text:$data"></li>
         </ul>
     </div>
-
+    <hr />
     <!--example3-->
     <div id="Example3">
         <table>
@@ -50,7 +50,13 @@
             </tbody>
         </table>
     </div>
-
+    <hr />
+    <!--example4-->
+    <div id="example4">
+        <input type="text" data-bind="value:firstName,valueUpdate:'keyup'" /><span data-bind="text:firstName"></span><br />
+        <input type="text" data-bind="value:lastName,valueUpdate:'keyup'" /><span data-bind="text:lastName"></span><br />
+        full Name: <span data-bind="text:fullName"></span>
+    </div>
 
     <script type="text/javascript">
 
@@ -86,8 +92,17 @@
             { fname: 'Jora', lname: 'Jane' },
             { fname: 'Foda', lname: 'Dace' }]
         );
-        ko.applyBindings(studentVM, document.getElementById('Example3'))
+        ko.applyBindings(studentVM, document.getElementById('Example3'));
 
+        //keyup, to spontaneous binding
+        var obj = {
+            firstName: ko.observable('Jimmy' ),
+            lastName: ko.observable('Joe')
+        };
+        obj.fullName = ko.computed(function () {
+            return obj.firstName() + ' ' + obj.lastName();
+        });
+        ko.applyBindings(obj, document.getElementById('example4'));
     </script>
 </body>
 </html>
